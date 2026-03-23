@@ -1,6 +1,6 @@
 # Chrome Web Browser region
 
-Function Get-GoogleChrome(){
+Function Show-GoogleChrome(){
 $web1 = "Google Chrome"
 
 
@@ -25,4 +25,4 @@ Write-Host
 }
 }
 
-Get-GoogleChrome
+Show-GoogleChrome
