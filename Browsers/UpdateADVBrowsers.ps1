@@ -24,3 +24,6 @@ elseif($GoogleTP -eq $false){
 Write-Host "Google Chrome is NOT installed on $env:computername" -ForegroundColor Red
 Write-Host
 }
+}
+
+Get-GoogleChrome
