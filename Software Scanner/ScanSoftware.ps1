@@ -1,12 +1,12 @@
 Function Show-FoundSoftware(){
-$q = '"'
+
 $web1 = "Google Chrome"
-$browser1 = $q + $web1 + $q
+
 
 $PC = $env:computername
 Write-Host '                                                            ' -BackgroundColor White
 Write-Host " The following software is installed on: $PC"                 -ForegroundColor Blue -BackgroundColor White
-Write-Host    $browser1                                                   -ForegroundColor Green -BackgroundColor White
+Write-Host    $web1                                                       -ForegroundColor Green -BackgroundColor White
 Write-Host '                                                            ' -BackgroundColor White
 }
 
