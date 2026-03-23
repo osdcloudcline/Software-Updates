@@ -1,5 +1,4 @@
-
-# Web Browser variables region - Google
+# Chrome Web Browser region
 
 Function Get-GoogleChrome(){
 $web1 = "Google Chrome"
