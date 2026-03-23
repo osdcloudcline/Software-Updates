@@ -25,4 +25,33 @@ Write-Host
 }
 }
 
+
+# Mozilla Firefox Web Browser region
+
+Function Show-MozillaFirefox(){
+$web2 = "Mozilla Firefox"
+
+
+$FirefoxEXE = "C:\Program Files\Mozilla Firefox\firefox.exe"
+
+$FirefoxTP = (Test-Path -Path $FirefoxEXE -IsValid)
+
+Write-Host "Scanning for: $FirefoxEXE" -ForegroundColor Cyan
+Write-Host
+If($FirefoxeTP -eq $true){
+Write-Host "Mozilla Firefox is already installed on $env:computername" -ForegroundColor Red
+Write-Host
+Write-Host "Processing updates for: $web2" -ForegroundColor Cyan 
+Write-Host
+winget upgrade --id Mozilla.Firefox
+Write-Host "Completed: $web2 update" -ForegroundColor Green
+Write-Host
+}
+elseif($FirefoxTP -eq $false){
+Write-Host "Mozilla Firefox is NOT installed on $env:computername" -ForegroundColor Red
+Write-Host
+}
+}
+
 Show-GoogleChrome
+Show-MozillaFirefox
