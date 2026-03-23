@@ -83,3 +83,7 @@ Write-Host
 Write-Verbose "Your user profile is located at $env:userprofile" -Verbose
 Write-Host
 Write-Host
+
+
+pause
+
