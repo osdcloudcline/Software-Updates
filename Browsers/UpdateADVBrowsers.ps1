@@ -25,7 +25,6 @@ Write-Host
 }
 }
 
-
 # Mozilla Firefox Web Browser region
 
 Function Show-MozillaFirefox(){
