@@ -17,7 +17,7 @@ $web1 = "Google Chrome"
 Write-Host '                                                                ' -BackgroundColor White
 Write-Host ' The following software is NOT installed on $env:computername : ' -ForegroundColor Red -BackgroundColor White
 Write-Host ' "Web Browser: $web1                                           "' -ForegroundColor Green -BackgroundColor White
-Write-Host '                                                                ' -BackgroundColor White
+
 }
 
 
