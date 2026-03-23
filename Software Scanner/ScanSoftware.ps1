@@ -4,10 +4,10 @@ $web1 = "Google Chrome"
 
 
 $PC = $env:computername
-Write-Host                                                                -BackgroundColor White
-Write-Host   "The following software is installed on: $PC"                -ForegroundColor Blue -BackgroundColor White
-Write-Host         "$web1"                                                -ForegroundColor Green -BackgroundColor White
-Write-Host                                                                -BackgroundColor White
+Write-HostCenter                                                                -BackgroundColor White
+Write-HostCenter   "The following software is installed on: $PC"                -ForegroundColor Blue -BackgroundColor White
+Write-HostCenter         "$web1"                                                -ForegroundColor Green -BackgroundColor White
+Write-HostCenter                                                                -BackgroundColor White
 }
 
 
