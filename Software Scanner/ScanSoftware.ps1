@@ -11,7 +11,7 @@ Function Get-SoftwareScan {
  IsNotInstalled = $false
  IsInstalled = $true
  }
- }
+ )
 switch ($SoftwareScan){
  "Google Chrome"{
  $GoogleEXE = "C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -19,6 +19,7 @@ switch ($SoftwareScan){
  $status.IsNotInstalled = $GoogleTP -eq $false
  $status.IsInstalled = $GoogleTP -eq $true
  $status.Details = if ($status.IsInstalled) {"Google Chrome is Installed"} else ($status.IsNotInstalled) {"Google Chrome is NOT installed"}
+ )
  }
  }
 
