@@ -1,30 +1,6 @@
-Function Show-SoftwareSummary(){
-
-$category1 = "Web Browsers:"
-$web1 = "Google Chrome"
-$web2 = "Mozilla Firefox"
-
 $PC = $env:computername
 
-Write-Host " **************************************************************** " -BackgroundColor White
-Write-Host '                                                                  ' -BackgroundColor White
-Write-Host  "The Current Windows hostname is:" "$PC"                            -ForegroundColor Blue -BackgroundColor White
-Write-Host '                                                                  ' -BackgroundColor White
-Write-Host '     The following software is installed:                         ' -ForegroundColor Blue -BackgroundColor White
-Write-Host '                                                                  ' -ForegroundColor Green -BackgroundColor White
-Write-Host '                                                                  ' -BackgroundColor White
 
-
-$category1 = "Web Browsers:"
-$web1 = "Google Chrome"
-$web2 = "Mozilla Firefox"
-
-
-Write-Host '                                                                 ' -BackgroundColor White
-Write-Host  "The following software is NOT installed on $env:computername :   " -ForegroundColor Red -BackgroundColor White
-Write-Host  "Web Browser: $web1                                              " -ForegroundColor Green -BackgroundColor White
-Write-Host '                                                                 ' -BackgroundColor White
-}
 
 
 Function Get-SoftwareScan {
@@ -38,6 +14,11 @@ Function Get-SoftwareScan {
 
 switch ($SoftwareScan){
  "Google Chrome"{
+ $GoogleEXE = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+ $GoogleTP = (Test-Path -Path $GoogleEXE -IsValid)
+ $status.IsNotInstalled = $GoogleTP -eq $false
+ $status.IsInstalled = $GoogleTP -eq $true
+ $status.Details = if ($status.IsInstalled) {"Google Chrome is Installed"} else ($status.IsNotInstalled) {"Google Chrome is NOT installed"}
  }
  
 
@@ -101,27 +82,24 @@ $AllSoftware = @()
   $status = Get-SoftwareScan $SoftwareName
   $AllSoftware += $status
 
-# Web Browsers region 
 
-# Google Chrome region
+Write-Host ""
+Write-Host "+=======================================================================+" -ForegroundColor Cyan
+Write-Host "|                        SOFTWARE SCAN RESULTS                      |    " -ForegroundColor Cyan  
+Write-Host "+=======================================================================+" -ForegroundColor Cyan
+Write-Host ""
 
-$web1 = "Google Chrome"
-$GoogleEXE = "C:\Program Files\Google\Chrome\Application\chrome.exe"
-$GoogleTP = (Test-Path -Path $GoogleEXE -IsValid)
-
-# Firefox region
-
-$web2 = "Mozilla Firefox"
-$FirefoxEXE = ""
-$FirefoxTP = ""
-
-If($GoogleTP -eq $true) -and ($FirefoxTP -eq $true){
-Show-SoftwareSummary
+# Show what's already installed
+if ($InstalledItems.Count -gt 0) {
+    Write-Host "ALREADY INSTALLED:" -ForegroundColor Green
+    Write-Host "-----------------" -ForegroundColor Green
+    foreach ($item in $InstalledItems) {
+        Write-Status "$($item.Name) - $($item.Details)" "INSTALLED"
+    }
+    Write-Host ""
 }
-elseif($GoogleTP -eq $false){
-Show-NotDetectedSoftware 
-}
-}
+
+
 
 
 
