@@ -5,10 +5,10 @@ $web1 = "Google Chrome"
 $Cat1ArgList = '"{0}" "{1}"' -f $category1, $web1
 
 $PC = $env:computername
-Write-Host '                                                                ' -BackgroundColor White
-Write-Host '     The following software is installed on: $PC                ' -ForegroundColor Blue -BackgroundColor White
-Write-Host '            $Cat1ArgList                                        ' -ForegroundColor Green -BackgroundColor White
-Write-Host '                                                                ' -BackgroundColor White
+Write-Host '                                                                  ' -BackgroundColor White
+Write-Host '     The following software is installed on: "$PC"                ' -ForegroundColor Blue -BackgroundColor White
+Write-Host '            "$Cat1ArgList"                                        ' -ForegroundColor Green -BackgroundColor White
+Write-Host '                                                                  ' -BackgroundColor White
 }
 
 
