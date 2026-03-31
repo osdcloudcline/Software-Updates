@@ -85,6 +85,8 @@ $AllSoftware = @()
   Write-Host "Checking $SoftwareName..." -ForegroundColor Gray
   $status = Get-SoftwareScan $SoftwareName
   $AllSoftware += $status
+}
+
 
 
 Write-Host ""
