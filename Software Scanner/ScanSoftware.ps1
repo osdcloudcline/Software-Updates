@@ -14,11 +14,14 @@ Function Get-SoftwareScan?() {
  }
 switch ($SoftwareScan){
  "Google Chrome"{
+ $ChromePATH = "C:\Program Files\Google\Chrome\Application"
  $GoogleEXE = "C:\Program Files\Google\Chrome\Application\chrome.exe"
  $GoogleTP = (Test-Path -Path $GoogleEXE -IsValid)
  $status.IsNotInstalled = $GoogleTP -eq $false
  $status.IsInstalled = $GoogleTP -eq $true
- $status.Details = if ($status.IsInstalled) {"Google Chrome is Installed"} else ($status.IsNotInstalled) {"Google Chrome is NOT installed"}
+ $status.Details = if ($status.IsInstalled) {"Google Chrome is Installed at $ChromePATH"} 
+  else{
+  ($status.IsNotInstalled) {"Google Chrome is NOT installed"}
  }
  }
  
