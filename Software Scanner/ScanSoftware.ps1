@@ -1,7 +1,6 @@
-$PC = $env:computername
-
- 
 Function Show-ScanSoftware(){
+
+$PC = $env:computername
 
 
  param([string]$SoftwareName)
@@ -23,7 +22,7 @@ switch ($SoftwareNames){
  $status.InstalledDetails = if ($status.IsInstalled) {
  $status.InstalledVersion = "Current Version: $($status.CurrentVersion)"
  "Google Chrome is Installed at $ChromePATH"} 
-  else{
+  elseif{
   ($status.IsNotInstalled) {"Google Chrome is NOT installed"}
  }
  }
@@ -34,7 +33,7 @@ switch ($SoftwareNames){
 $AllSoftware = @(){
  foreach ($SoftwareName in $SoftwareNames){
   Write-Host "Checking $SoftwareName..." -ForegroundColor Gray
-  $status = Get-SoftwareScan $SoftwareName
+  $status = Show-SoftwareScan $SoftwareName
   $AllSoftware += $status
 }
 }
