@@ -83,13 +83,13 @@ $SoftwareNames = @(
 }
 
 # Scan software
-$AllSoftware = @()
+$AllSoftware = @(){
  foreach ($SoftwareName in $SoftwareNames){
   Write-Host "Checking $SoftwareName..." -ForegroundColor Gray
   $status = Get-SoftwareScan $SoftwareName
   $AllSoftware += $status
 }
-
+}
 
 
 Write-Host ""
