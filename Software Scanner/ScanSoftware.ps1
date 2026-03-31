@@ -4,12 +4,13 @@ $PC = $env:computername
 
 
 Function Get-SoftwareScan?() {
- param([string]$SoftwareScan)
+ param([string]$SoftwareName)
 
  $status = @{
- Name = $SoftwareScan
+ Name = $SoftwareName
  IsNotInstalled = $false
  IsInstalled = $true
+ CurrentVersion = $null
  }
  }
 switch ($SoftwareScan){
@@ -19,7 +20,9 @@ switch ($SoftwareScan){
  $GoogleTP = (Test-Path -Path $GoogleEXE -IsValid)
  $status.IsNotInstalled = $GoogleTP -eq $false
  $status.IsInstalled = $GoogleTP -eq $true
- $status.Details = if ($status.IsInstalled) {"Google Chrome is Installed at $ChromePATH"} 
+ $status.InstalledDetails = if ($status.IsInstalled) {
+ $status.InstalledVersion = "Current Version: $($status.CurrentVersion)"
+ "Google Chrome is Installed at $ChromePATH"} 
   else{
   ($status.IsNotInstalled) {"Google Chrome is NOT installed"}
  }
@@ -29,7 +32,7 @@ Function Show-ScanSoftware(){
 
 #Software to Scan
 
-$SoftwareScan = @(
+$SoftwareNames = @(
 "Google Chrome",
 "Mozilla Firefox",
 "DuckDuck Go",
@@ -81,7 +84,7 @@ $SoftwareScan = @(
 
 # Scan software
 $AllSoftware = @()
- foreach ($SoftwareName in $SoftwareScan){
+ foreach ($SoftwareName in $SoftwareNames){
   Write-Host "Checking $SoftwareName..." -ForegroundColor Gray
   $status = Get-SoftwareScan $SoftwareName
   $AllSoftware += $status
