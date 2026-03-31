@@ -11,7 +11,7 @@ $GoogleTP = (Test-Path -Path $GoogleEXE -IsValid)
 Write-Host "Scanning for: $GoogleEXE" -ForegroundColor Cyan
 Write-Host
 If($GoogleTP -eq $true){
-Write-Host "$web1 is already installed on $env:computername" -ForegroundColor Red
+Write-Host "$web1 is already installed on $env:computername" -ForegroundColor Green
 Write-Host
 Write-Host "Processing updates for: $web1" -ForegroundColor Cyan 
 Write-Host
@@ -38,7 +38,7 @@ $FirefoxTP = (Test-Path -Path $FirefoxEXE -IsValid)
 Write-Host "Scanning for: $FirefoxEXE" -ForegroundColor Cyan
 Write-Host
 If($FirefoxeTP -eq $true){
-Write-Host "$web2 is already installed on $env:computername" -ForegroundColor Red
+Write-Host "$web2 is already installed on $env:computername" -ForegroundColor Green
 Write-Host
 Write-Host "Processing updates for: $web2" -ForegroundColor Cyan 
 Write-Host
@@ -66,7 +66,7 @@ $DuckDuckGoTP = (Test-Path -Path $DuckDuckGoEXE -IsValid)
 Write-Host "Scanning for: $DuckDuckGoEXE" -ForegroundColor Cyan
 Write-Host
 If($DuckDuckGoeTP -eq $true){
-Write-Host "$web3 is already installed on $env:computername" -ForegroundColor Red
+Write-Host "$web3 is already installed on $env:computername" -ForegroundColor Green
 Write-Host
 Write-Host "Processing updates for: $web3" -ForegroundColor Cyan 
 Write-Host
@@ -75,7 +75,7 @@ Write-Host "Completed: $web3 update" -ForegroundColor Green
 Write-Host
 }
 elseif($DuckDuckGoTP -eq $false){
-Write-Host "Mozilla Firefox is NOT installed on $env:computername" -ForegroundColor Red
+Write-Host "Dock DuckGo is NOT installed on $env:computername" -ForegroundColor Red
 Write-Host
 }
 }
