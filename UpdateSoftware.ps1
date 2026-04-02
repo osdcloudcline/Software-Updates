@@ -74,9 +74,11 @@ cls
        Write-Verbose "System Gateway/DNS Server: $GatewayDNS" -Verbose
        Write-Verbose "WAN or External IP Address: $ExternalIP" -Verbose
       
-Write-Host
-Write-Host "Hello, $env:username..." -ForegroundColor Cyan 
-Write-Host
+Write-Host                                                               -BackgroundColor White 
+Write-Host "Hello, $env:username..."                                     -BackgroundColor White -ForegroundColor Blue
+Write-Host                                                               -BackgroundColor White 
+Write-Host "Welcome to the Software Update System for $env:computername" -BackgroundColor White -ForegroundColor Blue
+Write-Host                                                               -BackgroundColor White 
 $Date = Get-Date
 Write-Host "Today is:" "$Date"
 Write-Host
