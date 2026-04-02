@@ -8,6 +8,7 @@ Function Show-MainMenu{
    [string]$Title = 'Operating System Administration & Deployment - Main Menu',
    [string]$Question = 'What type of action do you need to do?' 
    )
+   }
 cls
 
        $os = Get-CimInstance -ClassName Win32_OperatingSystem
@@ -101,3 +102,4 @@ Write-Host                                ' -BackgroundColor White
 
 pause
 
+Show-MainMenu
