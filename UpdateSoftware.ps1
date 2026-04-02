@@ -5,7 +5,7 @@
 Function Show-MainMenu{
    [CmdletBinding()]
    param(
-   [string]$Title = 'Operating System Administration & Deployment - Main Menu',
+   [string]$Title = 'Software Update System - Main Menu',
    [string]$Question = 'What type of action do you need to do?' 
    )
    }
@@ -91,10 +91,31 @@ Write-Host '                                                                    
 Write-Host '       This script will scan and display the results of the                   ' -ForegroundColor DarkBlue -BackgroundColor White
 Write-Host '       installed software, both under the SYSTEM and USER context             ' -ForegroundColor DarkBlue -BackgroundColor White
 Write-Host '                                                                              ' -BackgroundColor White
-Write-Host '      It will then update the detected software                               ' -ForegroundColor DarkBlue -BackgroundColor White
+Write-Host '       It will then update the detected software                              ' -ForegroundColor DarkBlue -BackgroundColor White
 Write-Host '                                                                              ' -BackgroundColor White
 Write-Host '      Please be patient and DO NOT exit the script                            ' -ForegroundColor DarkRed  -BackgroundColor White
 Write-Host '                                                                              ' -BackgroundColor White
 pause
+Clear-Host
+
+
+Write-Host "======= $Title ======"
+Write-Host " 1.  Scan for and Update Web Browsers"
+Write-Host " 2.  Scan for and Update Cloud Backup Solutions"
+Write-Host " 3.  Scan for and Update Development Tools"
+Write-Host " 4.  Scan for and Update File Transfer software"
+Write-Host " 5.  Scan for and Update Gaming software"
+Write-Host " 6.  Scan for and Update Media software"
+Write-Host " 7.  Scan for and Update Productivity software"
+Write-Host " 8.  Scan for and Update Programming software"
+Write-Host " 9.  Scan for and Update Utilities software"
+Write-Host " 10. Scan for and Update VDI Computing software"
+Write-Host " 11. Scan for and Update Virtualization software"
+Write-Host " 12. Scan and Update Everything" 
+Write-Host " 13. Operating System and SYSTEM Software Updates"
+Write-Host " 14. Exit PowerShell"
+do 
+{
+
 
 Show-MainMenu
