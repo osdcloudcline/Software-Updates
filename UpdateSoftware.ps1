@@ -89,9 +89,9 @@ Write-Host
 pause
 
 Write-Host                                 -BackgroundColor White 
-Write-Host ' This script will scan for     -BackgroundColor White -ForegroundColor Blue
-Write-Host ' and display the results for   -BackgroundColor White -ForegroundColor Blue
-Write-Host ' this installed software, both -BackgroundColor White -ForegroundColor Blue
+Write-Host ' This script will scan and     -BackgroundColor White -ForegroundColor Blue
+Write-Host ' display the results of  the   -BackgroundColor White -ForegroundColor Blue
+Write-Host ' installed software, both      -BackgroundColor White -ForegroundColor Blue
 Write-Host ' under the SYSTEM and USER     -BackgroundColor White -ForegroundColor Blue
 Write-Host ' context.                      -BackgroundColor White -ForegroundColor Blue
 Write-Host '                               -BackgroundColor White 
