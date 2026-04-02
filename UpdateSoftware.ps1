@@ -86,6 +86,18 @@ Write-Verbose "Your user profile is located at $env:userprofile" -Verbose
 Write-Host
 Write-Host
 
+pause
+
+Write-Host                                 -BackgroundColor White 
+Write-Host ' This script will scan for     -BackgroundColor White -ForegroundColor Blue
+Write-Host ' and display the results for   -BackgroundColor White -ForegroundColor Blue
+Write-Host ' this installed software, both -BackgroundColor White -ForegroundColor Blue
+Write-Host ' under the SYSTEM and USER     -BackgroundColor White -ForegroundColor Blue
+Write-Host ' context.                      -BackgroundColor White -ForegroundColor Blue
+Write-Host '                               -BackgroundColor White 
+Write-Host ' It will then update the       -BackgroundColor White -ForegroundColor Blue
+Write-Host ' software that was found       -BackgroundColor White -ForegroundColor Blue
+Write-Host                                 -BackgroundColor White 
 
 pause
 
