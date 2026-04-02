@@ -87,17 +87,14 @@ Write-Verbose "Your user profile is located at $env:userprofile" -Verbose
 Write-Host
 Write-Host
 
-Write-Host '                              '  -BackgroundColor White 
-Write-Host ' This script will scan and    '  -ForegroundColor DarkBlue -BackgroundColor White
-Write-Host ' display the results of  the  '  -ForegroundColor DarkBlue -BackgroundColor White
-Write-Host ' installed software, both     '  -ForegroundColor DarkBlue -BackgroundColor White
-Write-Host ' under the SYSTEM and USER    '  -ForegroundColor DarkBlue -BackgroundColor White
-Write-Host ' context.                     '  -ForegroundColor DarkBlue -BackgroundColor White
-Write-Host '                              '  -BackgroundColor White 
-Write-Host ' It will then update the      '  -ForegroundColor DarkBlue -BackgroundColor White
-Write-Host ' software that was found      '  -ForegroundColor DarkBlue -BackgroundColor White
-Write-Host '                              '  -BackgroundColor White 
-
+Write-Host '                                                                              ' -BackgroundColor White                                                              
+Write-Host '       This script will scan and display the results of the                   ' -ForegroundColor DarkBlue -BackgroundColor White
+Write-Host '       installed software, both under the SYSTEM and USER context             ' -ForegroundColor DarkBlue -BackgroundColor White
+Write-Host '                                                                              ' -BackgroundColor White
+Write-Host '      It will then update the detected software                               ' -ForegroundColor DarkBlue -BackgroundColor White
+Write-Host '                                                                              ' -BackgroundColor White
+Write-Host '      Please be patient and DO NOT exit the script                            ' -ForegroundColor DarkRed  -BackgroundColor White
+Write-Host '                                                                              ' -BackgroundColor White
 pause
 
 Show-MainMenu
