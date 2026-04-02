@@ -116,6 +116,7 @@ Write-Host " 13. Operating System and SYSTEM Software Updates"
 Write-Host " 14. Exit PowerShell"
 do 
 {
-
-
+$selection = Read-Host 'Please choose an option'
+  switch($selection)
+  {
 Show-MainMenu
