@@ -96,7 +96,7 @@ Write-Host ' context.                     '  -ForegroundColor DarkBlue -Backgrou
 Write-Host '                              '  -BackgroundColor White 
 Write-Host ' It will then update the      '  -ForegroundColor DarkBlue -BackgroundColor White
 Write-Host ' software that was found      '  -ForegroundColor DarkBlue -BackgroundColor White
-Write-Host                                '  -BackgroundColor White 
+Write-Host '                              '  -BackgroundColor White 
 
 pause
 
