@@ -76,9 +76,9 @@ cls
        Write-Verbose "WAN or External IP Address: $ExternalIP" -Verbose
       
 Write-Host                                                               -BackgroundColor White 
-Write-Host "Hello, $env:username..."                                     -BackgroundColor White -ForegroundColor Blue
+Write-Host "Hello, $env:username..."                                     -ForegroundColor DarkBlue -BackgroundColor White
 Write-Host                                                               -BackgroundColor White 
-Write-Host "Welcome to the Software Update System for $env:computername" -BackgroundColor White -ForegroundColor Blue
+Write-Host "Welcome to the Software Update System for $env:computername" -ForegroundColor DarkBlue -BackgroundColor White
 Write-Host                                                               -BackgroundColor White 
 $Date = Get-Date
 Write-Host "Today is:" "$Date"
