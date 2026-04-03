@@ -135,7 +135,7 @@ $selection = Read-Host 'Please choose an option'
    '11'{}
    '12'{}
    '13'{}
-   '14'{exit}
+   '14'{exit}{
   }
 }
 until ($selection -eq '14'){exit}
