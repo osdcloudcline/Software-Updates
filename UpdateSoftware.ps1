@@ -143,4 +143,6 @@ $selection = Read-Host 'Please choose an option'
       Write-Warning "Google Chrome is not installed!" -ForegroundColor Red
       }
    }
+    until ($selection -eq '14'){exit}
+    }
 Show-MainMenu
