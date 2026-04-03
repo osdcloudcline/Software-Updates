@@ -137,7 +137,9 @@ $selection = Read-Host 'Please choose an option'
    '13'{}
    '14'{exit}{
   }
+  }
+  until ($selection -eq '14'){exit}
 }
-until ($selection -eq '14'){exit}
+
 Show-MainMenu
 
