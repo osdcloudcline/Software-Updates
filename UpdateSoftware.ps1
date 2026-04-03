@@ -143,8 +143,10 @@ $selection = Read-Host 'Please choose an option'
       elseif($GoogleTP -eq $false){
       Write-Warning "Google Chrome is not installed!" -ForegroundColor Red
       }
-   }
-   '14'{}
-    until ($selection -eq '14'){exit}
-    }
+      }
+ 
+  '14'{exit}
+  }
+}
+until ($selection -eq '14'){exit}
 Show-MainMenu
