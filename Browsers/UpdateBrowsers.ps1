@@ -1,3 +1,10 @@
+# Browser file paths
+      $GoogleEXE = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+      $FirefoxEXE = "C:\Program Files\Mozilla Firefox\firefox.exe"
+      $DuckDuckGoEXE = "C:\Program Files\WindowsApps\DuckDuckGo.DesktopBrowser_0.150.1.0_x64__ya2fgkz3nks94\WindowsBrowser\DuckDuckGo.exe"
+
+
+
 # Define the browsers in a simple list (Array of Objects)
 $Browsers = @(
     @{ Name = "Google Chrome"; Path = $GoogleEXE; ID = "Google.Chrome" }
