@@ -123,9 +123,21 @@ $selection = Read-Host 'Please choose an option'
      $BrowsersUpdates = Invoke-WebRequest("https://github.com/osdcloudcline/Software-Updates/raw/refs/heads/main/Browsers/UpdateBrowsers.ps1")
      Invoke-Expression $($BrowsersUpdate.Content)
    }
-'14'{exit}
+   '2'{}
+   '3'{}
+   '4'{}
+   '5'{}
+   '6'{}
+   '7'{}
+   '8'{}
+   '9'{}
+   '10'{}
+   '11'{}
+   '12'{}
+   '13'{}
+   '14'{exit}
   }
 }
 until ($selection -eq '14'){exit}
-}
 Show-MainMenu
+
