@@ -131,8 +131,8 @@ $selection = Read-Host 'Please choose an option'
       
       Get-Package -ProviderName Programs, msi -Name "*Chrome*", "*Firefox*", "*DuckDuckGo*" | Select-Object Name, Version
 
-      If(($GoogleTP -eq $true) -and ($FirefoxTP -eq $true)){
-       Write-Host "Google CVhrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
+      If(($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $true)){
+       Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
        Write-Host
        Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
        Write-Host
@@ -140,18 +140,76 @@ $selection = Read-Host 'Please choose an option'
        Write-Host "Completed: Google Chrome update" -ForegroundColor Green
        Write-Host
 
-       Write-Host "Mozilla Firefoxis installed on $env:computername at $FirefoxEXE" -ForegroundColor DarkBlue -BackgroundColor White
+       Write-Host "Mozilla Firefox is installed on $env:computername at $FirefoxEXE" -ForegroundColor DarkBlue -BackgroundColor White
        Write-Host
        Write-Host "Processing updates for: Mozilla Firefox" -ForegroundColor Cyan 
        Write-Host
        winget upgrade --id Mozilla.Firefox
        Write-Host "Completed: Mozilla Firefox update" -ForegroundColor Green
        Write-Host
+
+       Write-Host "Duck DuckGo is installed on $env:computername at $DuckDuckGoEXE" -ForegroundColor DarkBlue -BackgroundColor White
+       Write-Host
+       Write-Host "Processing updates for: Duck DuckGo" -ForegroundColor Cyan 
+       Write-Host
+       winget upgrade --id DuckDuckGo.DesktopBrowser 
+       Write-Host "Completed: Mozilla Firefox update" -ForegroundColor Green
+       Write-Host
+       }
+      elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $false)){
+      Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
+       Write-Host
+       Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
+       Write-Host
+       winget upgrade --id Google.Chrome
+       Write-Host "Completed: Google Chrome update" -ForegroundColor Green
+       Write-Host
+
+       Write-Host "Mozilla Firefox is installed on $env:computername at $FirefoxEXE" -ForegroundColor DarkBlue -BackgroundColor White
+       Write-Host
+       Write-Host "Processing updates for: Mozilla Firefox" -ForegroundColor Cyan 
+       Write-Host
+       winget upgrade --id Mozilla.Firefox
+       Write-Host "Completed: Mozilla Firefox update" -ForegroundColor Green
+       Write-Host
+      }
+      elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $false)){
+      Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
+       Write-Host
+       Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
+       Write-Host
+       winget upgrade --id Google.Chrome
+       Write-Host "Completed: Google Chrome update" -ForegroundColor Green
+       Write-Host
+
+       Write-Host "Mozilla Firefox is installed on $env:computername at $FirefoxEXE" -ForegroundColor DarkBlue -BackgroundColor White
+       Write-Host
+       Write-Host "Processing updates for: Mozilla Firefox" -ForegroundColor Cyan 
+       Write-Host
+       winget upgrade --id Mozilla.Firefox
+       Write-Host "Completed: Mozilla Firefox update" -ForegroundColor Green
+       Write-Host
+
+       Write-Host "Duck Duck Go is NOT installed on $env:computername" -ForegroundColor Red -BackgroundColor White
+      }
+      elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $false) -and ($DuckDuckGoTP -eq $false)){
+       Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
+       Write-Host
+       Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
+       Write-Host
+       winget upgrade --id Google.Chrome
+       Write-Host "Completed: Google Chrome update" -ForegroundColor Green
+       Write-Host
+
+       Write-Host "Mozilla Firefox is NOT installed on $env:computername" -ForegroundColor Red -BackgroundColor White
+
+       Write-Host "Duck Duck Go is NOT installed on $env:computername" -ForegroundColor Red -BackgroundColor White
+      }
        Show-MainMenu
       }
-      elseif(($GoogleTP -eq $false) -and ($FirefoxTP -eq $false)){
-      Write-Warning "Google Chrome is not installed!" -ForegroundColor Red
-      Write-Warning "Mozilla Firefox is not installed!" -ForegroundColor Red
+      elseif(($GoogleTP -eq $false) -and ($FirefoxTP -eq $false) -and ($DuckDuckGoTP -eq $false)){
+      Write-Warning "No extra browsers are installed installed!" -ForegroundColor Red
+      
       }
       }
  
