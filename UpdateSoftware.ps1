@@ -119,4 +119,8 @@ do
 $selection = Read-Host 'Please choose an option'
   switch($selection)
   {
+  '1' $web = "*Chrome*", "*Firefox*", "*DuckDuckGo*"
+      Get-Package -ProviderName Programs, msi -Name "*Chrome*", "*Firefox*", "*DuckDuckGo*" | Select-Object Name, Version
+      
+      
 Show-MainMenu
