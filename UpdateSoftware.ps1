@@ -150,10 +150,10 @@ $selection = Read-Host 'Please choose an option'
 
        Write-Host "Duck DuckGo is installed on $env:computername at $DuckDuckGoEXE" -ForegroundColor DarkBlue -BackgroundColor White
        Write-Host
-       Write-Host "Processing updates for: Duck DuckGo" -ForegroundColor Cyan 
+       Write-Host "Processing updates for: Duck Duck Go" -ForegroundColor Cyan 
        Write-Host
        winget upgrade --id DuckDuckGo.DesktopBrowser 
-       Write-Host "Completed: Mozilla Firefox update" -ForegroundColor Green
+       Write-Host "Completed: Duck Duck Go update" -ForegroundColor Green
        Write-Host
        }
       elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $false)){
