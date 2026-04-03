@@ -25,6 +25,6 @@ if (-not $AnyFound) {
     Write-Warning "No third-party browsers are installed!"
 }
 
-$UpdateSoftwareMain = Invoke-WebRequest("")
+$UpdateSoftwareMain = Invoke-WebRequest("https://github.com/osdcloudcline/Software-Updates/raw/refs/heads/main/UpdateSoftware.ps1")
 Invoke-Expression $($UpdateSoftwareMain.Content)
 
