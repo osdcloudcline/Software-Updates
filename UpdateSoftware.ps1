@@ -149,7 +149,7 @@ $selection = Read-Host 'Please choose an option'
        Write-Host
        Show-MainMenu
       }
-      elseif($GoogleTP -eq $false) -and ($FirefoxTP -eq $false{
+      elseif($GoogleTP -eq $false) -and ($FirefoxTP -eq $false){
       Write-Warning "Google Chrome is not installed!" -ForegroundColor Red
       Write-Warning "Mozilla Firefox is not installed!" -ForegroundColor Red
       }
