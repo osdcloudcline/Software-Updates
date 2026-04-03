@@ -33,5 +33,5 @@ if (-not $AnyFound) {
 }
 
 
-$SoftwareUpdateMain = Invoke-WebRequest("")
+$SoftwareUpdateMain = Invoke-WebRequest("https://github.com/osdcloudcline/Software-Updates/raw/refs/heads/main/UpdateSoftware.ps1")
 Invoke-Expression $($SoftwareUpdatesMain.Content)
