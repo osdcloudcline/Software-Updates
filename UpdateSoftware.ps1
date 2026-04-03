@@ -153,8 +153,7 @@ $selection = Read-Host 'Please choose an option'
        winget upgrade --id DuckDuckGo.DesktopBrowser 
        Write-Host "Completed: Duck Duck Go update" -ForegroundColor Green
        Write-Host
-       }
-      elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $false)){
+       }elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $false)){
       Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
        Write-Host
        Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
@@ -170,8 +169,7 @@ $selection = Read-Host 'Please choose an option'
        winget upgrade --id Mozilla.Firefox
        Write-Host "Completed: Mozilla Firefox update" -ForegroundColor Green
        Write-Host
-      }
-      elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $false)){
+      }elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $false)){
       Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
        Write-Host
        Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
@@ -189,8 +187,7 @@ $selection = Read-Host 'Please choose an option'
        Write-Host
 
        Write-Host "Duck Duck Go is NOT installed on $env:computername" -ForegroundColor Red -BackgroundColor White
-      }
-      elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $false) -and ($DuckDuckGoTP -eq $false)){
+      }elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $false) -and ($DuckDuckGoTP -eq $false)){
        Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
        Write-Host
        Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
@@ -202,13 +199,12 @@ $selection = Read-Host 'Please choose an option'
        Write-Host "Mozilla Firefox is NOT installed on $env:computername" -ForegroundColor Red -BackgroundColor White
 
        Write-Host "Duck Duck Go is NOT installed on $env:computername" -ForegroundColor Red -BackgroundColor White
-      }
-      elseif(($GoogleTP -eq $false) -and ($FirefoxTP -eq $false) -and ($DuckDuckGoTP -eq $false)){
+      }elseif(($GoogleTP -eq $false) -and ($FirefoxTP -eq $false) -and ($DuckDuckGoTP -eq $false)){
       Write-Warning "No extra browsers are installed installed!" -ForegroundColor Red
       }
       Show-MainMenu
       }
-        '14'{exit}
+'14'{exit}
   }
 
 }
