@@ -120,10 +120,18 @@ $selection = Read-Host 'Please choose an option'
   switch($selection)
   {
   '1' $web = "*Chrome*", "*Firefox*", "*DuckDuckGo*"
-      Get-Package -ProviderName Programs, msi -Name "*Chrome*", "*Firefox*", "*DuckDuckGo*" | Select-Object Name, Version
+
       $GoogleEXE = "C:\Program Files\Google\Chrome\Application\chrome.exe"
       $GoogleTP = (Test-Path -Path $GoogleEXE -IsValid)
       $FirefoxEXE = "C:\Program Files\Mozilla Firefox\firefox.exe"
       $FirefoxTP = (Test-Path -Path $FirefoxEXE -IsValid)
+      $DuckDuckGoEXE = "C:\Program Files\WindowsApps\DuckDuckGo.DesktopBrowser_0.150.1.0_x64__ya2fgkz3nks94\WindowsBrowser\DuckDuckGo.exe"
+      $DuckDuckGoTP = (Test-Path -Path $DuckDuckGoEXE -IsValid)
+      
+      Get-Package -ProviderName Programs, msi -Name "*Chrome*", "*Firefox*", "*DuckDuckGo*" | Select-Object Name, Version
+
+      If($GoogleTP -eq $true){
+       Write-Host "Google CVhrome is installed on $env:computername at $GoogleEXE" -ForegroundColor Green -BackgroundColor White
+       
       
 Show-MainMenu
