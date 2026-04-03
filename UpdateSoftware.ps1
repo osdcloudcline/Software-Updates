@@ -131,7 +131,7 @@ $selection = Read-Host 'Please choose an option'
       
       Get-Package -ProviderName Programs, msi -Name "*Chrome*", "*Firefox*", "*DuckDuckGo*" | Select-Object Name, Version
 
-      If($GoogleTP -eq $true) -and ($FirefoxTP -eq $true){
+      If(($GoogleTP -eq $true) -and ($FirefoxTP -eq $true)){
        Write-Host "Google CVhrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
        Write-Host
        Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
@@ -149,7 +149,7 @@ $selection = Read-Host 'Please choose an option'
        Write-Host
        Show-MainMenu
       }
-      elseif($GoogleTP -eq $false) -and ($FirefoxTP -eq $false){
+      elseif(($GoogleTP -eq $false) -and ($FirefoxTP -eq $false)){
       Write-Warning "Google Chrome is not installed!" -ForegroundColor Red
       Write-Warning "Mozilla Firefox is not installed!" -ForegroundColor Red
       }
