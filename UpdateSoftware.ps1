@@ -128,8 +128,6 @@ $selection = Read-Host 'Please choose an option'
       $FirefoxTP = (Test-Path -Path $FirefoxEXE -IsValid)
       $DuckDuckGoEXE = "C:\Program Files\WindowsApps\DuckDuckGo.DesktopBrowser_0.150.1.0_x64__ya2fgkz3nks94\WindowsBrowser\DuckDuckGo.exe"
       $DuckDuckGoTP = (Test-Path -Path $DuckDuckGoEXE -IsValid)
-      
-      Get-Package -ProviderName Programs, msi -Name "*Chrome*", "*Firefox*", "*DuckDuckGo*" | Select-Object Name, Version
 
       If(($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $true)){
        Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
