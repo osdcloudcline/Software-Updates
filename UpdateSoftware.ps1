@@ -209,7 +209,7 @@ $selection = Read-Host 'Please choose an option'
       }
       elseif(($GoogleTP -eq $false) -and ($FirefoxTP -eq $false) -and ($DuckDuckGoTP -eq $false)){
       Write-Warning "No extra browsers are installed installed!" -ForegroundColor Red
-      
+      }
       }
       }
  
