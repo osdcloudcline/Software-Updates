@@ -121,7 +121,7 @@ $selection = Read-Host 'Please choose an option'
   {
   '1'{cls
      $BrowsersUpdates = Invoke-WebRequest("https://github.com/osdcloudcline/Software-Updates/raw/refs/heads/main/Browsers/UpdateBrowsers.ps1")
-     Invoke-Expression $($BrowsersUpdate.Content)
+     Invoke-Expression $($BrowsersUpdates.Content)
    }
    '2'{}
    '3'{}
