@@ -119,7 +119,8 @@ do
 $selection = Read-Host 'Please choose an option'
   switch($selection)
   {
-  '1' $web = "*Chrome*", "*Firefox*", "*DuckDuckGo*"
+  '1'{cls
+      $web = "*Chrome*", "*Firefox*", "*DuckDuckGo*"
 
       $GoogleEXE = "C:\Program Files\Google\Chrome\Application\chrome.exe"
       $GoogleTP = (Test-Path -Path $GoogleEXE -IsValid)
