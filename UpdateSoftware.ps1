@@ -205,16 +205,14 @@ $selection = Read-Host 'Please choose an option'
 
        Write-Host "Duck Duck Go is NOT installed on $env:computername" -ForegroundColor Red -BackgroundColor White
       }
-       Show-MainMenu
-      }
       elseif(($GoogleTP -eq $false) -and ($FirefoxTP -eq $false) -and ($DuckDuckGoTP -eq $false)){
       Write-Warning "No extra browsers are installed installed!" -ForegroundColor Red
       }
+      Show-MainMenu
       }
-      }
- 
-  '14'{exit}
+        '14'{exit}
   }
+
 }
 until ($selection -eq '14'){exit}
 Show-MainMenu
