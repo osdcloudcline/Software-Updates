@@ -129,7 +129,7 @@ $selection = Read-Host 'Please choose an option'
       $DuckDuckGoEXE = "C:\Program Files\WindowsApps\DuckDuckGo.DesktopBrowser_0.150.1.0_x64__ya2fgkz3nks94\WindowsBrowser\DuckDuckGo.exe"
       $DuckDuckGoTP = (Test-Path -Path $DuckDuckGoEXE -IsValid)
 
-      If((Test-Path -Path $GoogleEXE -eq $true) -and (Test-Path $FirefoxEXE -eq $true) -and (Test-Path -Path $DuckDuckGoEXE -eq $true)){
+      If(!(Test-Path -Path $GoogleEXE -eq $true) -and (Test-Path $FirefoxEXE -eq $true) -and (Test-Path -Path $DuckDuckGoEXE -eq $true)){
        Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
        Write-Host
        Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
@@ -154,7 +154,7 @@ $selection = Read-Host 'Please choose an option'
        Write-Host "Completed: Duck Duck Go update" -ForegroundColor Green
        Write-Host
        Show-MainMenu
-       }elseif (($GoogleTP -eq $true) -and ($FirefoxTP -eq $true) -and ($DuckDuckGoTP -eq $false)){
+       }elseif (!(Test-Path -Path $GoogleEXE -eq $true) -and (Test-Path $FirefoxEXE -eq $true) -and (Test-Path -Path $DuckDuckGoEXE -eq $false)){
       Write-Host "Google Chrome is installed on $env:computername at $GoogleEXE" -ForegroundColor DarkBlue -BackgroundColor White
        Write-Host
        Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
