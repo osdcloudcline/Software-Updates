@@ -132,6 +132,15 @@ $selection = Read-Host 'Please choose an option'
 
       If($GoogleTP -eq $true){
        Write-Host "Google CVhrome is installed on $env:computername at $GoogleEXE" -ForegroundColor Green -BackgroundColor White
-       
-      
+       Write-Host
+       Write-Host "Processing updates for: Google Chrome" -ForegroundColor Cyan 
+       Write-Host
+       winget upgrade --id Google.Chrome
+       Write-Host "Completed: Google Chrome update" -ForegroundColor Green
+       Write-Host
+      }
+      elseif($GoogleTP -eq $false){
+      Write-Warning "Google Chrome is not installed!" -ForegroundColor Red
+      }
+   }
 Show-MainMenu
