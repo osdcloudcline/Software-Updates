@@ -1,4 +1,5 @@
 # Browser file paths
+      $EdgeEXE = ""C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"" 
       $GoogleEXE = "C:\Program Files\Google\Chrome\Application\chrome.exe"
       $FirefoxEXE = "C:\Program Files\Mozilla Firefox\firefox.exe"
       $DuckDuckGoEXE = "C:\Program Files\WindowsApps\DuckDuckGo.DesktopBrowser_0.150.1.0_x64__ya2fgkz3nks94\WindowsBrowser\DuckDuckGo.exe"
@@ -7,6 +8,7 @@
 
 # Define the browsers in a simple list (Array of Objects)
 $Browsers = @(
+    @{ Name = "Microsoft Edge"; Path = $EdgeEXE; ID = "Microsoft.Edge " }
     @{ Name = "Google Chrome"; Path = $GoogleEXE; ID = "Google.Chrome" }
     @{ Name = "Mozilla Firefox"; Path = $FirefoxEXE; ID = "Mozilla.Firefox" }
     @{ Name = "Duck Duck Go"; Path = $DuckDuckGoEXE; ID = "DuckDuckGo.DesktopBrowser" }
