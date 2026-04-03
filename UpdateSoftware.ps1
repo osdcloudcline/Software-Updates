@@ -121,6 +121,7 @@ $selection = Read-Host 'Please choose an option'
   {
   '1' $web = "*Chrome*", "*Firefox*", "*DuckDuckGo*"
       Get-Package -ProviderName Programs, msi -Name "*Chrome*", "*Firefox*", "*DuckDuckGo*" | Select-Object Name, Version
-      
+      $GoogleEXE = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+      $GoogleTP = (Test-Path -Path $GoogleEXE -IsValid)
       
 Show-MainMenu
