@@ -54,5 +54,5 @@ foreach ($App in $Media) {
 }
 
 if (-not $AnyFound) {
-    Write-Warning "No gaming software are installed!"
+    Write-Warning "No media software is installed!"
 }
