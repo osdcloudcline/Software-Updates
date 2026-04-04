@@ -7,6 +7,13 @@
       $HandbrakeEXE = "C:\Program Files\HandBrake\HandBrake.exe"
       $KODIEXE = "C:\Program Files\Kodi\kodi.exe"
       $MKVToolNixEXE = "C:\Program Files\MKVToolNix\mkvtoolnix-gui.exe"
+      $MakeMKVEXE = "C:\Program Files (x86)\MakeMKV\makemkv.exe"
+      $MediaInfo1EXE = "C:\Program Files\MediaInfo\MediaInfo.exe"
+      $MediaInfo2EXE = "C:\Program Files (x86)\MediaInfo\MediaInfo.exe"
+      $LogitechMyHarmonyEXE = "C:\Program Files (x86)\Logitech\MyHarmony\MyHarmonyLauncher.exe"
+      $PowerISOEXE = "C:\Program Files\PowerISO\poweriso.exe"
+      $VLCPlayerEXE = "C:\Program Files\VideoLAN\VLC\vlc.exe"
+      $iTunesEXE = "C:\Program Files\iTunes\iTunes.exe"
 
 
 
@@ -20,11 +27,19 @@ $Media = @(
     @{ Name = "GIMP 3.2.2.0"; Path = $GIMPUserEXE; ID = "GIMP.GIMP.3" }
     @{ Name = "Handbrake Media Encoder"; Path = $HandbrakeEXE; ID = "HandBrake.HandBrake" }
     @{ Name = "KODI Media Software Suite"; Path = $KODIEXE; ID = "XBMCFoundation.Kodi" }
+    @{ Name = "MKV ToolNix"; Path = $MKVToolNixEXE; ID = "MoritzBunkus.MKVToolNix" }
+    @{ Name = "MakeMKV"; Path = $MakeMKVEXE; ID = "GuinpinSoft.MakeMKV" }
+    @{ Name = "MediaInfo"; Path = $MediaInfo1EXE; ID = "MediaArea.MediaInfo.GUI" }
+    @{ Name = "MediaInfo"; Path = $MediaInfo2EXE; ID = "MediaArea.MediaInfo.GUI" }
+    @{ Name = "Logitech MyHarmony Remote Universal Remote Control"; Path = $LogitechMyHarmonyEXE; ID = "Logitech.MyHarmony" }
+    @{ Name = "PowerISO"; Path = $PowerISOEXE; ID = "PowerSoftware.PowerISO" }
+    @{ Name = "VLC Media Player"; Path = $VLCPlayerEXE; ID = "VideoLAN.VLC" }
+    @{ Name = "Apple iTunes"; Path = $iTunesEXE; ID = "Apple.iTunes" }
 )
 
 $AnyFound = $false
 
-foreach ($App in $Gaming) {
+foreach ($App in $Media) {
     if (Test-Path -Path $App.Path) {
         $AnyFound = $true
         Write-Host "$($App.Name) is installed on $env:computername at $($App.Path)" -ForegroundColor DarkBlue -BackgroundColor White
