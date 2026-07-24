@@ -266,10 +266,6 @@ if (-not $AnyFound) {
 # Productivity file paths
       $AcrobatReaderEXE = "C:\Program Files\Adobe\Acrobat DC\Acrobat\ReaderMenuCoreApp.msix" 
       
-
-
-
-
 # Define the productivity software in a simple list (Array of Objects)
 $Productivity = @(
     @{ Name = "Adobe Acrobat Reader DC"; Path = $AcrobatReaderEXE; ID = "Adobe.Acrobat.Reader.64-bit" }
@@ -298,7 +294,7 @@ if (-not $AnyFound) {
 # Programming file paths
       $AICursorEditorEXE = "C:\Users\$env:username\AppData\Local\Programs\cursor\Cursor.exe" 
       $VSCode1EXE = "C:\Program Files\Microsoft VS Code\Code.exe"
-      $VSCode2EXE = ""C:\Users\$env:username\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+      $VSCode2EXE = "C:\Users\$env:username\AppData\Local\Programs\Microsoft VS Code\Code.exe"
       $VS2026EXE = "C:\Program Files\Microsoft Visual Studio\2026\Enterprise\Common7\IDE\devenv.exe"
       
 
@@ -309,7 +305,7 @@ if (-not $AnyFound) {
 $Programming = @(
     @{ Name = "AI Cursor Editor"; Path = $AICursorEditorEXE; ID = "Anysphere.Cursor" }
     @{ Name = "Microsoft Visual Studio Code"; Path = $VSCode1EXE; ID = "Microsoft.VisualStudioCode" }
-    @{ Name = "Microsoft Visual Studio Code"; Path = $VSCode1EXE; ID = "Microsoft.VisualStudioCode" }
+    @{ Name = "Microsoft Visual Studio Code"; Path = $VSCode2EXE; ID = "Microsoft.VisualStudioCode" }
     @{ Name = "Microsoft Visual Studio 2026"; Path = $VS2026EXE; ID = "Microsoft.VisualStudio.Enterprise" }
 )
 
@@ -334,7 +330,7 @@ if (-not $AnyFound) {
 }
 
 # Security file paths
-      $MBAMEXE = "C:\Program Files\Adobe\Acrobat DC\Acrobat\ReaderMenuCoreApp.msix" 
+      $MBAMEXE = "C:\Program Files\Malwarebytes\Anti-Malware\Malwarebytes.exe"
       
 
 # Define the security software in a simple list (Array of Objects)
