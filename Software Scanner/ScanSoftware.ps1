@@ -166,9 +166,47 @@ Function Show-ScanSoftware {
                     $status.InstalledDetails = "NextCloud Client Cloud Backup is NOT installed"
                 }
             }
+        "Apple iCloud" {
+                $iCloudPATH = "C:\Program Files (x86)\Common Files\Apple\Internet Services"
+                $iCloudEXE  = "C:\Program Files (x86)\Common Files\Apple\Internet Services\iCloud.exe"
+                
+                $iCloudTP   = Test-Path -Path $iCloudEXE
 
- 
+                if ($NextCloudTP) {
+                    $FileVersion = (Get-Item $iCloudEXE).VersionInfo.ProductVersion
+                    $status.IsInstalled      = $true
+                    $status.IsNotInstalled   = $false
+                    $status.CurrentVersion   = $FileVersion
+                    $status.InstalledDetails = "Apple iCloud Cloud Backup is Installed at $iCloudPATH (Version: $FileVersion)"
+                } else {
+                    $status.IsInstalled      = $false
+                    $status.IsNotInstalled   = $true
+                    $status.InstalledDetails = "Apple iCloud Cloud Backup is NOT installed"
+                }
+            }
 
+        "Carbpnite" {
+                $CarbonitePATH = "C:\Program Files (x86)\Carbonite\Carbonite Backup"
+                $CarboniteEXE  = "C:\Program Files (x86)\Carbonite\Carbonite Backup\CarboniteUI.exe"
+                
+                $CarboniteTP   = Test-Path -Path $CarboniteEXE
+
+                if ($CarboniteTP) {
+                    $FileVersion = (Get-Item $CarboniteEXE).VersionInfo.ProductVersion
+                    $status.IsInstalled      = $true
+                    $status.IsNotInstalled   = $false
+                    $status.CurrentVersion   = $FileVersion
+                    $status.InstalledDetails = "Carbonite Cloud Backup is Installed at $CarbonitePATH (Version: $FileVersion)"
+                } else {
+                    $status.IsInstalled      = $false
+                    $status.IsNotInstalled   = $true
+                    $status.InstalledDetails = "Carbonite Cloud Backup is NOT installed"
+                }
+            }
+
+
+         # === Dev Tools region ===
+         
             # === Default Fallback ===
             Default {
                 $status.InstalledDetails = "Software definition not found in script."
@@ -180,12 +218,13 @@ Function Show-ScanSoftware {
     } # <-- Closes the foreach loop
 
     # Output the final results
-    return $AllSoftware
+    return $AllSoftware | Out-GridView
 }
 
 # Define the array lists
 $BrowserList = "Google Chrome", "Microsoft Edge", "Mozilla Firefox"
-$CloudBackupList = "Dropbox", "Microsoft OneDrive", "Google Drive", "Next Cloud"
+$CloudBackupList = "Dropbox", "Microsoft OneDrive", "Google Drive", "Next Cloud", "Apple iCloud", "Carbonite"
+$DevToolsList 
 
 # Run the function combining both lists
-Show-ScanSoftware -SoftwareNames ($BrowserList + $CloudBackupList)
+Show-ScanSoftware -SoftwareNames ($BrowserList + $CloudBackupList + $DevToolsList)
