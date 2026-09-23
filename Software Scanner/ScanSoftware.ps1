@@ -1,3 +1,5 @@
+
+Function Show-ScanSoftware {
 <#
 .SYNOPSIS
     Professional PowerShell script to scan installed software on a Windows machine.
@@ -68,3 +70,6 @@ process {
         $FinalInventory | Out-GridView -Title "Installed Software Inventory"
     }
 }
+}
+
+Show-ScanSoftware
