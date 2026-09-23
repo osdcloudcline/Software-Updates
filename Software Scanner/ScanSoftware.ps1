@@ -141,7 +141,7 @@ Function Show-ScanSoftware {
                     $status.IsInstalled      = $true
                     $status.IsNotInstalled   = $false
                     $status.CurrentVersion   = $FileVersion
-                    $status.InstalledDetails = "Google Drive Cloud Backup is Installed at $Google DrivePATH (Version: $FileVersion)"
+                    $status.InstalledDetails = "Google Drive Cloud Backup is Installed at $GoogleDrivePATH (Version: $FileVersion)"
                 } else {
                     $status.IsInstalled      = $false
                     $status.IsNotInstalled   = $true
