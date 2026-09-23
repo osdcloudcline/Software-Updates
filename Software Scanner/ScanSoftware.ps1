@@ -130,6 +130,24 @@ Function Show-ScanSoftware {
                     $status.InstalledDetails = "Microsoft OneDrive Cloud Backup is NOT installed"
                 }
             }
+        "Google Drive" {
+                $GoogleDrivePATH = "C:\Program Files\Google\Drive File Stream\130.0.2.0"
+                $GoogleDriveEXE  = "C:\Program Files\Google\Drive File Stream\130.0.2.0\GoogleDriveFS.exe"
+                
+                $GoogleDriveTP   = Test-Path -Path $GoogleDriveEXE
+
+                if ($GoogleDriveTP) {
+                    $FileVersion = (Get-Item $GoogleDriveEXE).VersionInfo.ProductVersion
+                    $status.IsInstalled      = $true
+                    $status.IsNotInstalled   = $false
+                    $status.CurrentVersion   = $FileVersion
+                    $status.InstalledDetails = "Google Drive Cloud Backup is Installed at $Google DrivePATH (Version: $FileVersion)"
+                } else {
+                    $status.IsInstalled      = $false
+                    $status.IsNotInstalled   = $true
+                    $status.InstalledDetails = "Google Drive Cloud Backup is NOT installed"
+                }
+            }
 
             # === Default Fallback ===
             Default {
@@ -147,7 +165,7 @@ Function Show-ScanSoftware {
 
 # Define the array lists
 $BrowserList = "Google Chrome", "Microsoft Edge", "Mozilla Firefox"
-$CloudBackupList = "Dropbox", "Microsoft OneDrive" # <-- Fixed to match the switch condition perfectly
+$CloudBackupList = "Dropbox", "Microsoft OneDrive", "Google Drive"
 
 # Run the function combining both lists
 Show-ScanSoftware -SoftwareNames ($BrowserList + $CloudBackupList)
