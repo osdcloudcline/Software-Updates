@@ -244,7 +244,10 @@ Function Show-ScanSoftware {
                     $status.InstalledDetails = "Git Hub Desktop is NOT installed"
                 }
             }
-            
+
+        # === File Transfer Tools region ===
+
+        
             # === Default Fallback ===
             Default {
                 $status.InstalledDetails = "Software definition not found in script."
