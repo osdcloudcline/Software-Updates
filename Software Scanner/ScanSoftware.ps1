@@ -148,6 +148,26 @@ Function Show-ScanSoftware {
                     $status.InstalledDetails = "Google Drive Cloud Backup is NOT installed"
                 }
             }
+        "Next Cloud" {
+                $NextCloudPATH = "C:\Program Files\Nextcloud"
+                $NextCloudEXE  = "C:\Program Files\Nextcloud\nextcloud.exe"
+                
+                $NextCloudTP   = Test-Path -Path $NextCloudEXE
+
+                if ($NextCloudTP) {
+                    $FileVersion = (Get-Item $NextCloudEXE).VersionInfo.ProductVersion
+                    $status.IsInstalled      = $true
+                    $status.IsNotInstalled   = $false
+                    $status.CurrentVersion   = $FileVersion
+                    $status.InstalledDetails = "NextCloud Client Cloud Backup is Installed at $NextCloudPATH (Version: $FileVersion)"
+                } else {
+                    $status.IsInstalled      = $false
+                    $status.IsNotInstalled   = $true
+                    $status.InstalledDetails = "NextCloud Client Cloud Backup is NOT installed"
+                }
+            }
+
+ 
 
             # === Default Fallback ===
             Default {
@@ -165,7 +185,7 @@ Function Show-ScanSoftware {
 
 # Define the array lists
 $BrowserList = "Google Chrome", "Microsoft Edge", "Mozilla Firefox"
-$CloudBackupList = "Dropbox", "Microsoft OneDrive", "Google Drive"
+$CloudBackupList = "Dropbox", "Microsoft OneDrive", "Google Drive", "Next Cloud"
 
 # Run the function combining both lists
 Show-ScanSoftware -SoftwareNames ($BrowserList + $CloudBackupList)
