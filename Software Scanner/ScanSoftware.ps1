@@ -206,7 +206,45 @@ Function Show-ScanSoftware {
 
 
          # === Dev Tools region ===
-         
+
+         "Docker Desktop" {
+                $DockerDesktopPATH = "C:\Program Files\Docker\Docker"
+                $DockerDesktopEXE  = "C:\Program Files\Docker\Docker\Docker Desktop.exe"
+                
+                $DockerDesktopTP   = Test-Path -Path $DockerDesktopEXE
+
+                if ($DockerDesktopTP) {
+                    $FileVersion = (Get-Item $DockerDesktopEXE).VersionInfo.ProductVersion
+                    $status.IsInstalled      = $true
+                    $status.IsNotInstalled   = $false
+                    $status.CurrentVersion   = $FileVersion
+                    $status.InstalledDetails = "Docker Desktop is Installed at $DockerDesktopPATH (Version: $FileVersion)"
+                } else {
+                    $status.IsInstalled      = $false
+                    $status.IsNotInstalled   = $true
+                    $status.InstalledDetails = "Docker Desktop is NOT installed"
+                }
+            }
+
+        "GitHub Desktop" {
+                $GitHUbDesktopPATH = "C:\Users\$env:username\AppData\Local\GitHubDesktop"
+                $GitHUbDesktopEXE  = "C:\Users\$env:username\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
+                
+                $GitHUbDesktopTP   = Test-Path -Path $GitHUbDesktopEXE
+
+                if ($GitHUbDesktopTP) {
+                    $FileVersion = (Get-Item $GitHUbDesktopEXE).VersionInfo.ProductVersion
+                    $status.IsInstalled      = $true
+                    $status.IsNotInstalled   = $false
+                    $status.CurrentVersion   = $FileVersion
+                    $status.InstalledDetails = "Git Hub Desktop is Installed at $GitHUbDesktopPATH (Version: $FileVersion)"
+                } else {
+                    $status.IsInstalled      = $false
+                    $status.IsNotInstalled   = $true
+                    $status.InstalledDetails = "Git Hub Desktop is NOT installed"
+                }
+            }
+            
             # === Default Fallback ===
             Default {
                 $status.InstalledDetails = "Software definition not found in script."
@@ -218,13 +256,13 @@ Function Show-ScanSoftware {
     } # <-- Closes the foreach loop
 
     # Output the final results
-    return $AllSoftware | Out-GridView
+    return $AllSoftware | Out-GridView -Title "Results of Software scan"
 }
 
 # Define the array lists
 $BrowserList = "Google Chrome", "Microsoft Edge", "Mozilla Firefox"
 $CloudBackupList = "Dropbox", "Microsoft OneDrive", "Google Drive", "Next Cloud", "Apple iCloud", "Carbonite"
-$DevToolsList 
+$DevToolsList = "Docker Desktop", "GitHub Desktop"
 
 # Run the function combining both lists
 Show-ScanSoftware -SoftwareNames ($BrowserList + $CloudBackupList + $DevToolsList)
