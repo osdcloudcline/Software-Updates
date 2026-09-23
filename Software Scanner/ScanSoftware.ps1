@@ -9,7 +9,6 @@ Function Show-ScanSoftware {
 
     foreach ($SoftwareName in $SoftwareNames) {
         Write-Host "Checking $SoftwareName..." -ForegroundColor Cyan
-        Write-Host
 
         # Initialize status object for the current software
         $status = [ordered]@{
@@ -22,7 +21,7 @@ Function Show-ScanSoftware {
 
         switch ($SoftwareName) {
 
-        # Web Browser region
+            # === Web Browser region ===
             "Google Chrome" {
                 $ChromePATH = "C:\Program Files\Google\Chrome\Application"
                 $GoogleEXE  = "C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -40,7 +39,7 @@ Function Show-ScanSoftware {
                     $status.IsNotInstalled   = $true
                     $status.InstalledDetails = "Google Chrome is NOT installed"
                 }
-            } # <-- THIS CLOSING BRACKET WAS WRONG OR MISSING
+            } 
 
             "Microsoft Edge" {
                 $EdgePATH = "C:\Program Files (x86)\Microsoft\Edge\Application"
@@ -61,7 +60,7 @@ Function Show-ScanSoftware {
                 }
             }
 
-           "Mozilla Firefox" {
+            "Mozilla Firefox" {
                 $FirefoxPATH = "C:\Program Files\Mozilla Firefox"
                 $FirefoxEXE  = "C:\Program Files\Mozilla Firefox\firefox.exe"
                 
@@ -79,24 +78,45 @@ Function Show-ScanSoftware {
                     $status.InstalledDetails = "Mozilla Firefox is NOT installed"
                 }
             }
+
+            # === Cloud Backup region ===
+            "Dropbox" {
+                $DropboxPATH = "C:\Program Files (x86)\Dropbox\Client"
+                $DropboxEXE  = "C:\Program Files (x86)\Dropbox\Client\Dropbox.exe"
+                
+                $DropboxTP   = Test-Path -Path $DropboxEXE
+
+                if ($DropboxTP) {
+                    $FileVersion = (Get-Item $DropboxEXE).VersionInfo.ProductVersion
+                    $status.IsInstalled      = $true
+                    $status.IsNotInstalled   = $false
+                    $status.CurrentVersion   = $FileVersion
+                    $status.InstalledDetails = "Dropbox cloud backup is Installed at $DropboxPATH (Version: $FileVersion)"
+                } else {
+                    $status.IsInstalled      = $false
+                    $status.IsNotInstalled   = $true
+                    $status.InstalledDetails = "Dropbox cloud backup is NOT installed"
+                }
+            }
+
+            # === Default Fallback ===
+            # (Must always go at the very end of the switch block)
             Default {
                 $status.InstalledDetails = "Software definition not found in script."
             }
-
-       # Cloud Backup region
-        }
+        } # <-- Closes the switch statement
 
         # Convert hash table to an object for clean output and add to array
         $AllSoftware += [PSCustomObject]$status
-    }
+    } # <-- Closes the foreach loop
 
     # Output the final results
     return $AllSoftware
-    
 }
 
-# Fix: Define the array of software names you want to check before running the function
+# Define the array lists
 $BrowserList = "Google Chrome", "Microsoft Edge", "Mozilla Firefox"
+$CloudBackupList = "Dropbox"
 
-# Run the function
-Show-ScanSoftware -SoftwareNames $BrowserList
+# Run the function combining both lists
+Show-ScanSoftware -SoftwareNames ($BrowserList + $CloudBackupList)
